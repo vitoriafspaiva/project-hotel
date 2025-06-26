@@ -10,6 +10,8 @@ import { Quarto } from "./Classes/Quarto.js";
 const app = express()
 const port = 3000
 
+app.use(express.json())
+
 //Criar hotel
 const hotel = new Hotel() 
 
