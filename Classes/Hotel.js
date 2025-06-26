@@ -1,4 +1,4 @@
-import { Reserva } from "./Reserva"
+import { Reserva } from "./Reserva.js"
 
 export class Hotel {
     constructor() {
