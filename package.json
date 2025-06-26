@@ -17,5 +17,8 @@
     "url": "https://github.com/vitoriafspaiva/project-hotel/issues"
   },
   "homepage": "https://github.com/vitoriafspaiva/project-hotel#readme",
-  "description": "Sistema de reserva de quartos para hotel"
+  "description": "Sistema de reserva de quartos para hotel",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
 }

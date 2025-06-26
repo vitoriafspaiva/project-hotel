@@ -1,10 +1,14 @@
 // Link do vídeo explicativo:
 // Link do projeto no Replit:
 
+import express from "express"
 import { Funcionario } from "./Classes/Funcionario.js";
 import { Hospede } from "./Classes/Hospede.js";
 import { Hotel } from "./Classes/Hotel.js";
 import { Quarto } from "./Classes/Quarto.js";
+
+const app = express()
+const port = 3000
 
 //Criar hotel
 const hotel = new Hotel() 
@@ -12,34 +16,15 @@ const hotel = new Hotel()
 //Criar funcionário
 const funcionario = new Funcionario(1, "Vitória Paiva", "vitoriafspaiva@gmail.com")
 
-//Criar quartos
-const quarto1 = new Quarto(102, "Solteiro")
-const quarto2 = new Quarto (104, "Casal")
+app.post('/hospedes', (req, res) => {
+    console.log("POST /hospedes - Registrando novo hóspede.", req.body)
+    const { id, nome, email } = req.body
+    const hospede = new Hospede(id, nome, email)
+    funcionario.registrar_hospede(hotel, hospede) 
+    res.status(201).json({ mensagem: "Hospede registrado", hospede})
+    console.log("Hóspede registrado com sucesso!", hospede)                                                                                                                                                    
+})
 
-funcionario.add_quarto(hotel, quarto1)
-funcionario.add_quarto(hotel, quarto2)
-
-//Criar hospedes
-const hospede1 = new Hospede(2, "Vinicius Arcanjo", "vinicius.arcanjo@outlook.com.br")
-const hospede2 = new Hospede(3, "Lara Sampaio", "lara.sampaio@gmail.com")
-
-funcionario.registrar_hospede(hotel, hospede1)
-funcionario.registrar_hospede(hotel, hospede2)
-
-//Reservas
-const reserva1 = hotel.fazer_reserva(hospede1, quarto1)
-const reserva2 = hotel.fazer_reserva(hospede2, quarto2)
-
-console.log("Reserva: ", hospede1.consultar_reservas().map(r => r.get_info()))
-console.log("Reserva: ", hospede2.consultar_reservas().map(r => r.get_info())), 
-
-console.log("Todas as reservas")
-// hotel.get_reservas().array.forEach((reserva, i) => {
-//     const info = reserva.get_info()
-//     console.log(`Reserva ${i + 1}: Hospede ${info.hospede}, Quarto ${info.quarto}`)
-// }); 
-
-//Cancelamento de reserva
-funcionario.cancelar_reserva(hotel, reserva1)
-
-console.log("Reservas após cancelamento", hospede1.consultar_reservas())
+app.listen(port, () => {
+    console.log(`Servidor rodando em http://localhost:${port}`)
+})
