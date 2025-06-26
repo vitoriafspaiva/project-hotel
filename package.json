@@ -1,0 +1,21 @@
+{
+  "name": "project-hotel",
+  "version": "1.0.0",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vitoriafspaiva/project-hotel.git"
+  },
+  "keywords": [],
+  "author": "Vitória",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vitoriafspaiva/project-hotel/issues"
+  },
+  "homepage": "https://github.com/vitoriafspaiva/project-hotel#readme",
+  "description": "Sistema de reserva de quartos para hotel"
+}
