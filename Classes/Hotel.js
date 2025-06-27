@@ -43,7 +43,7 @@ export class Hotel {
     }
 
     get_reservas() {
-        return this.reserva
+        return this.reservas
     }
 
 
