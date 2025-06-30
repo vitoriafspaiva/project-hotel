@@ -1,5 +1,5 @@
-// Link do vídeo explicativo:
-// Link do projeto no Replit:
+// Link do vídeo explicativo: https://drive.google.com/file/d/19z2I-WYXYaj6ucQ7Qt5xeTE2gz7wQN0E/view?usp=drive_link
+// Link do projeto no Replit: https://replit.com/@vitoriafspaiva/project-hotel
 
 import { Funcionario } from "./Classes/Funcionario.js";
 import { Hospede } from "./Classes/Hospede.js";
@@ -69,6 +69,5 @@ hotel.get_quartos().forEach(quarto => {
     console.log(`Quarto ${quarto.numero} - Tipo: ${quarto.tipo} - Disponível: ${quarto.estaDisponivel() ? 'Sim' : 'Não'}`)
 })
 
-console.log(`\nReservas de ${hospede1.get_nome()} após o cancelamento:`, hospede1.consultar_reservas())
 console.log("\nReservas que não foram cancelados:")
 console.log(hotel.get_reservas().map(r => r.get_info()))
